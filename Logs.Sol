@@ -1,0 +1,28 @@
+pragma solidity ^0.8.4;
+
+// SPDX-License-Identifier: Apache-2.0
+
+
+contract LogTutorial {
+
+    uint256 number;
+
+    event Log(string message);
+    event LogNumber(uint256 number);
+
+    function store(uint256 num) public {
+        emit Log("got to store function");
+        number = num;
+    }
+
+    function retrieve() public returns (uint256){
+        emit Log("Retrieve was called!");
+        return number;
+    }
+
+    function add1ToNumber() public {
+        emit LogNumber(number);
+        number += 1;
+    }
+
+}
